@@ -1,0 +1,42 @@
+# ---- Java / Maven ----
+target/
+*.class
+*.jar
+!**/maven-wrapper.jar
+
+# ---- Node / 前端 ----
+node_modules/
+dist/
+dist-ssr/
+.npm/
+.pnpm-store/
+frontend/.vite/
+
+# ---- IDE ----
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# ---- 操作系统 ----
+.DS_Store
+Thumbs.db
+
+# ---- 日志 / 临时文件 ----
+logs/
+*.log
+*.tmp
+
+# ---- 运行时上传与密钥 ----
+uploads/
+data/
+.env
+.env.*
+*.local
+
+# ---- Spring Boot 额外 ----
+*.original

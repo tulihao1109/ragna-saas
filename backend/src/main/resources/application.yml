@@ -1,0 +1,52 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: ragna
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ragna
+    username: ragna
+    password: ragna123
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  ai:
+    model:
+      chat: none
+      embedding: none
+      image: none
+      moderation: none
+      audio:
+        speech: none
+        transcription: none
+    vectorstore:
+      pgvector:
+        initialize-schema: true       # 启动时自动建 vector_store 表
+        dimensions: 1024              # bge-m3 是 1024 维
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE #用余弦距离衡量两段文本相似度。
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+ragna:
+  llm:
+    chat:
+      base-url: https://api.deepseek.com
+      api-key: ${DEEPSEEK_API_KEY:sk-placeholder}
+      model: deepseek-chat
+    embedding:
+      base-url: https://api.siliconflow.cn/v1
+      api-key: ${SILICONFLOW_API_KEY:sk-placeholder}
+      model: BAAI/bge-m3
+  jwt:
+    secret: ${JWT_SECRET:ragna-secret-key-change-me-please-0123456789abcdef}
+    expire-hours: 24
