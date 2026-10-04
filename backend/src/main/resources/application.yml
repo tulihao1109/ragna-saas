@@ -28,6 +28,11 @@ spring:
         index-type: HNSW
         distance-type: COSINE_DISTANCE #用余弦距离衡量两段文本相似度。
 
+    servlet:
+      multipart:
+        max-file-size: 50MB
+        max-request-size: 50MB
+
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
@@ -38,6 +43,8 @@ mybatis-plus:
       logic-not-delete-value: 0
 
 ragna:
+  storage:
+    dir: ./uploads
   llm:
     chat:
       base-url: https://api.deepseek.com
